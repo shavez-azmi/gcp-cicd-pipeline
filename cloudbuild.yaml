@@ -3,7 +3,10 @@ steps:
   args: ['build', '-t', 'us-central1-docker.pkg.dev/imposing-avatar-451119-s0/shavez/app:$COMMIT_SHA', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/imposing-avatar-451119-s0/shavez/app:$COMMIT_SHA']
+  args: ['push', 'us-central1-docker.pkg.dev/imposing-avatar-451119-s0/shavez-100938606/app:$COMMIT_SHA']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/imposing-avatar-451119-s0/shavez-100938606/app:$COMMIT_SHA']
 
 options:
   logging: 'CLOUD_LOGGING_ONLY'
