@@ -1,15 +1,22 @@
-# Dockerfile
-FROM node:14
+# Use official Node.js runtime as base image
+FROM node:18-alpine
 
+# Set working directory in the container
 WORKDIR /app
 
-COPY . .  
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-RUN npm install  
+# Install dependencies
+RUN npm install
 
-# Set the port for Cloud Run (Use 8080 since Cloud Run defaults to it)
-# ENV PORT=8080  
+# Copy the rest of the application code
+COPY src/ ./src/
+COPY .dockerignore ./
+COPY src/persistence/ ./persistence/
 
-EXPOSE 8080  
+# Expose the port the app runs on
+EXPOSE 8080
 
-CMD ["npm", "start"]
+# Modify the start command to listen on 0.0.0.0 and port 8080
+CMD ["node", "src/index.js"]
