@@ -6,4 +6,4 @@ steps:
   args: ['push', 'us-central1-docker.pkg.dev/imposing-avatar-451119-s0/shavez/app:$COMMIT_SHA']
 
 options:
-  logging: 'REGIONAL_USER_OWNED_BUCKET'
+  logging: 'CLOUD_LOGGING_ONLY'
